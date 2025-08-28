@@ -1,0 +1,2 @@
+db-username = "tit2025" #needs to be 1-16/letters, numbers only (no spaces or special characters, lowercase recommended)/Forbidden names:admin, root, postgres (for PostgreSQL), rdsadmin, master
+db-password = "Tech-i-tech2025!" #(8–41 chars, at least 1 uppercase, 1 lowercase, 1 number, 1 special character)
