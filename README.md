@@ -14,7 +14,9 @@ This project allows us to deploy a highly available, scalable, and secure multi-
 
 ## 🚦 Getting Started
 ![alt text](image.png)
+
 ### Prerequisites
+(first time using AWS :)
 
 Before you get started, make sure you have the following prerequisites in place:
 
@@ -196,7 +198,8 @@ This project is licensed under the MIT License.
 
 Next Steps:
 
-Add better S3 bucket have examples
-Add more monitoring (grafana prometheus/elk)
+Add better S3 bucket (have examples).
+Add more monitoring (grafana prometheus/elk).
+Add jumphost so we dont have direct access.
 
 
