@@ -8,4 +8,4 @@ echo "RDS instance stopped."
 
 # To start later, run:
 # aws rds start-db-instance --db-instance-identifier rds-db
- #aws rds wait db-instance-available --db-instance-identifier rds-db
+# aws rds wait db-instance-available --db-instance-identifier rds-db

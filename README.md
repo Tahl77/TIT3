@@ -40,7 +40,7 @@ Before you get started, make sure you have the following prerequisites in place:
 - **Scalability**: Easily scale the web and application tiers to handle varying workloads.
 - **Security**: Security groups and network ACLs are configured to ensure a secure environment.
 
-## Bootsrtrap backend setup
+## Backend S3 bucket
 
 S3 bucket for secure and stable statefile.
 Open bootstrap folder and run tf init and apply.
@@ -116,12 +116,66 @@ Follow these steps to deploy the architecture:
    git clone https://github.com/Tahl77/TIT3.git
    ```
 
-2. Go to folder boostrap to setup the backend
-3. Initialize Terraform and apply the configuration:
+2. Go to folder boostrap to setup the backend:
+   ```
+   cd bootstrap
+   terrform init
+   terrform apply
+   
+   Outputs:
+
+   s3_bucket_name = "tit-terraform-state"
+   s3_bucket_region = "eu-north-1"
+   ```
+   Output will show the name of the bucket which would be used in main.tf
+   Ideally this is separate task/pipeline in its own folder or repo.
+
+3. Initialize Terraform in main folder(TIT3) and apply the configuration:
    ```
    terraform init
+   terraform apply -var-file="secret.tfvars" -auto-approve
    ```
-4. Review the changes and confirm.
+   Skipping the plan -outplan for when its actually needed(debugging -.-`)
+   we use the var file for the database creds or we wont be able to create it unless we input them by hand
+
+4. Terraform will create:
+
+- VPC/subnets/security groups
+
+- ASGs for web and app tiers
+
+- Launch templates / EC2 instances
+
+- RDS database
+
+- Load balancers and target groups
+
+- CloudWatch alarms and dashboards
+
+Terraform waits for RDS and ASG instances to be fully available (~10–15 minutes).
+
+5. Test the Deployment
+
+Web and App Servers
+
+Check the Load Balancer DNS in the AWS console.
+
+Access the web tier via browser — it should route through the ALB.
+
+CloudWatch Alarms / Dashboards
+
+Go to CloudWatch → Dashboards → Your dashboard name.
+
+Trigger a high CPU test: SSH into an EC2 and run a CPU load generator, or temporarily set alarm thresholds low for demo.
+
+RDS Database
+
+Use the credentials from secret.tfvars to connect:
+```
+mysql -h <rds-endpoint> -u dbmaster -p
+```
+
+Extra: [Pause](\pause_resources\pause_rds.sh) functionallity to lower costs(even if free it still drains the credits)
 
 ## 💼 Usage
 

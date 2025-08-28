@@ -86,9 +86,11 @@ variable "launch-template-web-name" {
   description = "Name for Launch-template-1"
 }
 
-variable "image-id" {
-  description = "Value for Image-id"
-}
+# this is for Amazon Linux 2 AMI (HVM), SSD Volume Type - ami-0c02fb55956c7d316 in eu-north-1
+# but desiceed to hardcode it, it can still be flexible if needed
+# variable "image-id" {
+#   description = "Value for Image-id"
+# }
 
 variable "instance-type" {
   description = "Value for Instance type"
