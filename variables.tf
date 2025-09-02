@@ -96,6 +96,11 @@ variable "instance-type" {
   description = "Value for Instance type"
 }
 
+variable "pause" {
+  type    = bool
+  default = false
+}
+
 variable "key-name" {
   description = "Value for Key name"
 }
