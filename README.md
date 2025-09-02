@@ -199,7 +199,9 @@ This project is licensed under the MIT License.
 Next Steps:
 
 Add better S3 bucket (have examples).
+
 Add more monitoring (grafana prometheus/elk).
+
 Add jumphost so we dont have direct access.
 
 
