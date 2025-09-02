@@ -1,0 +1,29 @@
+name: "Task"
+description: A specific task or to-do item
+title: "[Task]: "
+labels: ["task"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to track tasks or to-dos.
+
+  - type: input
+    id: task_summary
+    attributes:
+      label: Task Summary
+      description: A short description of the task.
+      placeholder: "Refactor authentication service"
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: Define when this task is considered done.
+      value: |
+        - [ ] Code is implemented
+        - [ ] Code is reviewed
+        - [ ] Tests are passing
+        - [ ] Documentation is updated

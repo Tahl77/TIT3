@@ -1,0 +1,38 @@
+name: "Feature Request"
+description: Suggest a new feature or enhancement
+title: "[Feature]: "
+labels: ["feature", "enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a feature! Please provide as much detail as possible.
+        
+  - type: input
+    id: summary
+    attributes:
+      label: Feature Summary
+      description: A short, clear description of the feature.
+      placeholder: "Add dark mode support"
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Detailed Description
+      description: Explain what the feature should do and why it's useful.
+      placeholder: "The app should allow switching between light and dark themes."
+    validations:
+      required: true
+
+  - type: textarea
+    id: checklist
+    attributes:
+      label: Checklist
+      description: What needs to be done for this feature?
+      value: |
+        - [ ] Design the feature
+        - [ ] Implement the functionality
+        - [ ] Write tests
+        - [ ] Update documentation
